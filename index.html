@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="assets/css/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/google-font.css">
+    <link rel="stylesheet" href="assets/css/control.css">
+</head>
+<body>
+
+    <section>
+        <div id="video_wrapper">
+            <div id="video_player" class="paused">
+                <div class="volume_level">
+                    <div class="volume_percentage">
+                        75%
+                    </div>
+                    <div class="volume_icon">
+                        <i class="material-icons">volume_up</i>
+                    </div>
+                </div>
+                <div id="video_status">
+                    <div class="">
+                        <i class="material-icons">play_arrow</i>
+                    </div>
+                </div>
+                <div class="duration_rewind first">
+                    <div>10 seconds</div>
+                    <div>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                   </div>
+                </div>
+                <div class="duration_rewind second">
+                    <div>10 seconds</div>
+                    <div>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                        <i class="material-icons duration_rewind_icon">play_arrow</i>
+                   </div>
+                </div>
+                <!----
+                    <video src="assets/video/Nature Slow Motion Video HD - 4K (ULTRA HD) - My Nature World.mp4" id="main_video"> </video>
+                    <video src="" id="preview_video" class=""> </video>
+                -->
+                <video src="assets/video/Wonders of Nature (Samsung Galaxy S3) HD.mp4" id="main_video"> </video>
+                <div id="thumbnail"></div>
+                <div class="progressAreaTime">0.00</div>
+                <div class="controls">
+                    <div class="progress_area">
+                        <div class="progress_bar">
+                            <span></span>
+                        </div>
+                        <div class="buffered_progress_bar"></div>
+                    </div>
+                    <div class="control_list">
+                        <div class="controls_left">
+                            <span class="icon">
+                                <i class="material-icons fast_rewind">replay_10</i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons play_pause">play_arrow</i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons fast_forward">forward_10</i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons volume" title = 'mute(m)'>volume_up</i>
+                                <input type="range" min="0" max="100" id="volume_range">
+                            </span>
+                            <div class="timer">
+                                <span class="current">0:00</span> / <span class="duration">0:00</span>
+                            </div>
+                        </div>
+                        <div class="controls_right">
+                            <span class="icon">
+                                <i class="material-icons auto_play"></i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons settingsBTn">settings</i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons picture_in_picture" title="picture in picture(i)">picture_in_picture_alt</i>
+                            </span>
+                            <span class="icon">
+                                <i class="material-icons fullscreen" title="fullscreen(f)">fullscreen</i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="settings" class="">
+                    <div class="playback">
+                        <span>Playback Speed</span>
+                        <ul>
+                            <li data-speed="0.25">0.25x</li>
+                            <li data-speed="0.5">0.5x</li>
+                            <li data-speed="0.75">0.75x</li>
+                            <li data-speed="1" class="active">Normal</li>
+                            <li data-speed="1.25">1.25x</li>
+                            <li data-speed="1.5">1.5x</li>
+                            <li data-speed="1.75">1.75x</li>
+                            <li data-speed="2">2x</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        
+        // Blob url let xhr = new XMLHttpRequest();
+        /*
+        var main_video= document.querySelector('#video_wrapper #main_video');
+        let xhr = new XMLHttpRequest();
+         xhr.open("GET", "assets/video/video.mp4"); 
+         xhr.responseType = "arraybuffer"; 
+         xhr.onload = (e)=>{
+        let blob = new Blob([xhr.response]); 
+        let url = URL.createObjectURL (blob); 
+        main_video.src = url;
+        console.log(url)
+         }
+        xhr.send();
+        */
+    </script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/video-control.js"></script>
+</body>
+</html>
