@@ -232,14 +232,13 @@ progress_area.addEventListener('mousemove',(e)=>{
     progressAreaTime.style.setProperty('--x',`${x}px`);
     progressAreaTime.style.display ='block';
     
-    thumbnail.style.setProperty('--x',`${x}px`);
-    thumbnail.style.display ='block';
 })
+
+
+
 
 progress_area.addEventListener('mouseleave',()=>{
     progressAreaTime.style.display ='none';
-    thumbnail.style.display ='none';
-
 })
 
 
@@ -479,6 +478,16 @@ window.addEventListener('keydown', function (e) {
 
 
 
+
+
+
+
+
+
+
+
+
+//video preview
 var thumbnails = [];
 var thumbnailWidth = 158;
 var thumbnailHeight = 90;
@@ -600,6 +609,22 @@ progress_area.addEventListener('mousemove',(e)=>{
     let videoDuration = main_video.duration;
     let progressTime = Math.floor((x / progresswidthval) * videoDuration);
 
+
+    if(x >= progresswidthval - 80){
+        x = progresswidthval -80;
+    }
+    else if(x <= 75){
+        x = 75;
+    }
+    else{
+        x = e.offsetX;
+    }
+        
+    thumbnail.style.setProperty('--x',`${x}px`);
+    thumbnail.style.display ='block';
+
+
+
     for (var item of thumbnails) {
         
         var data = item.sec.find(x1 => x1.index === Math.floor(progressTime));
@@ -616,4 +641,7 @@ progress_area.addEventListener('mousemove',(e)=>{
 
 })
 
-console.log(main_video.src)
+
+progress_area.addEventListener('mouseleave',()=>{
+    thumbnail.style.display ='none';
+})
