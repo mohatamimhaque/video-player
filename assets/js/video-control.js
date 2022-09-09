@@ -485,7 +485,7 @@ window.addEventListener('keydown', function (e) {
 
 
 
-
+/*
 
 //video preview
 var thumbnails = [];
@@ -645,3 +645,4 @@ progress_area.addEventListener('mousemove',(e)=>{
 progress_area.addEventListener('mouseleave',()=>{
     thumbnail.style.display ='none';
 })
+*/
