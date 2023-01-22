@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="assets/css/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/google-font.css">
+    <link rel="stylesheet" href="assets/css/mobile-control.css">
+    
+</head>
+<body>
+
+       
+        <div id="video_wrapper">
+            <div id="video_player" class="paused">
+                <div class="video_status active">
+                    <div class="skip_previous">
+                        <span class="material-icons">
+                            skip_previous
+                         </span>
+                    </div>
+                    <div class="play_arrow">
+                        <span class="material-icons">
+                            play_arrow
+                         </span>
+                    </div>
+                    <div class="skip_next">
+                        <span class="material-icons">
+                            skip_next
+                         </span>
+                    </div>
+                </div>
+                <div class="progress_area mobile">
+                    <div class="progress_bar">
+                        <span></span>
+                    </div>
+                    <div class="buffered_progress_bar"></div>
+                </div>
+                <div class="contorl-top active">
+                    <span class="icon" style="z-index:1">
+                        <i class="material-icons auto_play"></i>
+                    </span>
+                    <span class="icon" id="captionBTn" style="z-index:2">
+                        <i class="material-icons">closed_caption</i>
+                    </span>
+                    <span class="icon" id="settingsBTn" style="z-index:2">
+                        <i class="material-icons">settings</i>
+                    </span>
+                </div>
+                <div class="control_bottom">
+                    <div class="timer">
+                        <span class="current">0:00</span> / <span class="duration">0:00</span>
+                    </div>
+                    <div class="sc-control">
+                        <span class="icon" >
+                            <i for="fc" class="material-icons mobile_fullscreen">fullscreen</i>
+                            <input type="text-box" style="display:none" id="fc" value="portrait-secondary">
+                        </span>
+                        <span class="icon">
+                            <i class="material-icons picture_in_picture">picture_in_picture_alt</i>
+                        </span>
+                    </div>
+
+                </div>
+
+              
+                <div id="thumbnail"></div>
+                <p class="caption_text"></p>
+                <div class="progressAreaTime">0.00</div>
+                <div id="spinner">
+                    <div class="spinner">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" />
+                    </svg>
+                    </div>
+                </div>
+                <div id="video_overlay">
+                    <img src="assets/thumbnail/thumbnail.jpg" alt="">
+                    <div class="video_overlay_logo">
+                        <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" ></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    </div>
+                </div>
+                <video id="main_video" preload="metadata"> 
+                    <source src="assets/video/video144p.mp4" size="144" type="video/mp4">
+                    <source src="assets/video/video240p.mp4" size="240" type="video/mp4">
+                    <source src="assets/video/video360p.mp4" size="360" type="video/mp4">
+                    <source src="assets/video/video480p.mp4" size="480" type="video/mp4">
+                    <source src="assets/video/video720p.mp4" size="720" type="video/mp4">
+                    <source src="assets/video/video1080p.mp4" size="1080" type="video/mp4">
+                    <track id="track1" label="arabic" kind="subtitles" src="assets/subtitles/arabic.vtt" srclang="en"></track>
+                    <track id="track2" label="bangla" kind="subtitles" src="assets/subtitles/bangla.vtt" srclang="en"></track>
+                    <track id="track3" label="chinese" kind="subtitles" src="assets/subtitles/chinese.vtt" srclang="en"></track>
+                    <track id="track4" label="english" kind="subtitles" src="assets/subtitles/english.vtt" srclang="en"></track>
+                    <track id="track5" label="hindi" kind="subtitles" src="assets/subtitles/hindi.vtt" srclang="en"></track>
+                    <track id="track6" label="urdu" kind="subtitles" src="assets/subtitles/urdu.vtt" srclang="en"></track>
+
+                </video>
+                
+            </div>
+        </div>
+        <div id="settings" class="">
+            <div class="setting_menu">
+                <ul>
+                    <li id="quality">
+                        <i class="material-icons">equalizer</i>
+                        <span>quality</span>
+                    </li>
+                    <li id="subtitles_btn">
+                        <i class="material-icons">subtitles</i>
+                        <span>captions</span>
+                    </li>
+                    <li id="loop" class="">
+                        <i class="material-icons">loop</i>
+                        <span>loop video</span>
+                    </li>
+                    <li id="playback_speed">
+                        <i class="material-icons">slow_motion_video</i>
+                        <span>placyback speed</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="qualities" class="">
+            <div class="qualities_menu">
+                <span>Qualty for current video</span>
+                <ul>
+                  
+                  <li data-quality="auto" class="active quality-auto">auto</li>
+                
+                </ul>
+                <p>This selection only applies to the current video.For al videos got to setting</p>
+            </div>
+        </div>
+        <div id="playback" class="">
+            <div class="playback_menu">
+                <ul>
+                    <li data-speed="0.25">0.25x</li>
+                    <li data-speed="0.5">0.5x</li>
+                    <li data-speed="0.75">0.75x</li>
+                    <li data-speed="1" class="active">Normal</li>
+                    <li data-speed="1.25">1.25x</li>
+                    <li data-speed="1.5">1.5x</li>
+                    <li data-speed="1.75">1.75x</li>
+                    <li data-speed="2">2x</li>        
+                </ul>
+            </div>
+        </div>
+        <div id="subtitles" class="">
+            <div class="subtitles_menu">
+                <ul>
+                         
+                </ul>
+            </div>
+        </div>
+        <div id="captions"></div>
+            <a href='desktop-player.html'>desktop player</a>
+    <script>
+        
+        // Blob url let xhr = new XMLHttpRequest();
+        /*
+        var main_video= document.querySelector('#video_wrapper #main_video');
+        let xhr = new XMLHttpRequest();
+         xhr.open("GET", "https://mohatamimpractice.000webhostapp.com/vs/video/video.mp4"); 
+         xhr.responseType = "arraybuffer"; 
+         xhr.onload = (e)=>{
+        let blob = new Blob([xhr.response]); 
+        let url = URL.createObjectURL (blob); 
+        main_video.src = url;
+        console.log(url)
+         }
+        xhr.send();
+        */
+    </script>
+    <script src="assets/js/jquery.js"></script>
+    
+    <script src="assets/js/mobile-control.js"></script>
+    <script src="assets/js/video-select.js"></script>
+</body>
+</html>
